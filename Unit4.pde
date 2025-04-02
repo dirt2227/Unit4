@@ -4,34 +4,54 @@
 color blue = #bde0fe;
 color green = #6a994e;
 color red = #ba181b;
+ color brown = #9c6644;
 
 void setup() {
-  size(800, 800);
+  size(800, 600);
+  background(blue);
+  
 }
 
 void draw()  {
-  flower(200, 100);
- background(blue);
-  strokeWeight(0);
-  stroke(green);
-  fill(green);
- rect(400, 400, 20, 100);
- ellipse(390, 470, 40, 15);
- ellipse(430, 470, 40, 15);
- fill(red);
- ellipse(410, 390, 50, 50);
- stroke(red);
- strokeWeight(20);
- line(380, 390, 400, 400);
- line(440, 390, 420, 400);
+  house(200, 100);
+  //house(300, 300);
+  //house(20, 100);
+  //house(600, 100);
+  
 }
 
-void flower(int x, int y)  {
-  pushMatrix();
-  translate(x, y);
-  petals();
-  stem();
-  Leaves();
-  
-  popMatrix();
+void house(int x, int y)  {
+ pushMatrix();
+ translate(x, y);
+ base();
+ roof();
+ window(50, 100);  //left
+ window(250, 100);  //right
+ door(150, 250);
+ 
+ popMatrix();
+}
+
+void base()  {
+ fill(green);
+ stroke(0);
+ strokeWeight(3);
+ rect(0, 0, 400, 400);
+}
+
+void roof()  {
+  int x = -100;
+ fill(red);
+ triangle(x, 50, x + 300, -100, x +600, 50);
+}
+
+void window(int x, int y)  {
+    fill(blue);
+    rect(x, y, 90, 90);
+}
+
+void door(int x, int y)  {
+ fill(brown); 
+ rect(x, y, 90, 150);
+ 
 }
