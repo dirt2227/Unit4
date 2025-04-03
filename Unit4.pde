@@ -4,25 +4,31 @@
 color blue = #bde0fe;
 color green = #6a994e;
 color red = #ba181b;
- color brown = #9c6644;
+color brown = #9c6644;
+
+
 
 void setup() {
   size(800, 600);
   background(blue);
   
-}
-
-void draw()  {
-  house(200, 100);
-  //house(300, 300);
-  //house(20, 100);
-  //house(600, 100);
+  random(0, 255);
   
 }
 
-void house(int x, int y)  {
+void draw()  {
+  house(random(100, 600), random(100, 600), 0.5);
+  house(300, 300, 0.2);
+  house(20, 100, 0.8);
+  house(600, 100, 0.4);
+  
+}
+
+void house(float x, float y, float s)  {
  pushMatrix();
  translate(x, y);
+ rotate(PI/2);
+ scale(s);
  base();
  roof();
  window(50, 100);  //left
