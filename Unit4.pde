@@ -10,36 +10,39 @@ color brown = #9c6644;
 
 void setup() {
   size(800, 600);
-  background(blue);
-  
-  random(0, 255);
+    background(blue);
+  house(random(0, 600), random(10, 600), random(0.5, 1));
+
   
 }
 
 void draw()  {
-  house(random(100, 600), random(100, 600), 0.5);
-  house(300, 300, 0.2);
-  house(20, 100, 0.8);
-  house(600, 100, 0.4);
+
+
   
 }
 
 void house(float x, float y, float s)  {
  pushMatrix();
  translate(x, y);
- rotate(PI/2);
+ //rotate(PI/2);
  scale(s);
+ 
  base();
  roof();
- window(50, 100);  //left
- window(250, 100);  //right
+ float r, g, b;
+ r = random(0, 255);
+  g = random(0, 255);
+   b = random(0, 255);
+ window(50, 100, r, g, b);  //left
+ window(250, 100, r, g, b);  //right
  door(150, 250);
  
  popMatrix();
 }
 
 void base()  {
- fill(green);
+ fill(random(0, 255), random(0, 255) , random(0, 255) );
  stroke(0);
  strokeWeight(3);
  rect(0, 0, 400, 400);
@@ -47,17 +50,17 @@ void base()  {
 
 void roof()  {
   int x = -100;
- fill(red);
+ fill(random(0, 255), random(0, 255) , random(0, 255) );
  triangle(x, 50, x + 300, -100, x +600, 50);
 }
 
-void window(int x, int y)  {
-    fill(blue);
+void window(float x, float y, float r, float g, float b)  {
+    fill(r, g, b);
     rect(x, y, 90, 90);
 }
 
-void door(int x, int y)  {
- fill(brown); 
+void door(float x, float y)  {
+ fill(random(0, 255), random(0, 255) , random(0, 255) );
  rect(x, y, 90, 150);
  
 }
