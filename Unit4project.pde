@@ -67,7 +67,11 @@ bee(g, random(0, 1000));
 g = g + random(0, 100);
 }
 
-cloud(0, 0);
+float h = -500;
+while ( h<= 800) {
+cloud(h, random(-100, 40));
+h = h + 250;
+}
 
 }
 
@@ -354,6 +358,7 @@ void npetal(float x, float y)  {
    popMatrix();
 }
 
+//--------------------------------------------------------------------bee--------------------------------------------------
 void bee(float x, float y)  {
  pushMatrix();
  translate(x, y);
@@ -389,17 +394,26 @@ void wings()  {
   
 }
 
+//----------------------------------------------------------------------clouds-------------------------------------------
 void cloud(float x, float y)  {
   pushMatrix();
  translate(x, y);
- cloudbody();
-   popMatrix();
+ int a;
+  a = 100;
+  while (a <= 800) {
+  cloudbody(a);
+ a = a + 300;
+  }
+ popMatrix();
   
 }
 
-void cloudbody()  {
+void cloudbody(float x)  {
   stroke(255);
- circle(100, 100, 30);
- circle(120, 80, 40);
- circle(120, 80, 40);
+ circle(x, 100, 30);
+ circle(x + 20, 80, 40);
+ circle(x + 50, 80, 40);
+ ellipse(x + 40, 100, 60, 40);
+ circle(x + 70, 90, 40);
+
 }
